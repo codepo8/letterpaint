@@ -1,0 +1,13 @@
+CACHE MANIFEST
+
+# 1.8
+
+CACHE:
+error.ogg
+win.ogg
+opensans.ttf
+letterpaint.js
+letterpaint.css
+
+NETWORK:
+*
