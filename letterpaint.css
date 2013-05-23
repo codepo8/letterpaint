@@ -39,11 +39,10 @@ canvas {
 }
 .cover {
   position: absolute;
-  top: 13vh;
+  top: 18vh;
   left: 5vw;
   right: 5vw;
-  bottom: 11vh;
-  font-size: 30px;
+  bottom: 14vh;
   z-index: 2;
   border-radius: 10px;
   background: #ccc;
