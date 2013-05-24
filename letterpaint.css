@@ -39,10 +39,10 @@ canvas {
 }
 .cover {
   position: absolute;
-  top: 18vh;
-  left: 5vw;
-  right: 5vw;
-  bottom: 14vh;
+  top: 80px;
+  left: 10px;
+  right: 10px;
+  bottom: 20px;
   z-index: 2;
   border-radius: 10px;
   background: #ccc;
@@ -51,6 +51,11 @@ canvas {
   -webkit-transform: translate(-120%,0);
   transform: translate(-120%,0);
 } 
+
+.info #info {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
 
 .win #win {
   -webkit-transform: translate(0, 0);
@@ -118,6 +123,10 @@ canvas {
   border-radius: 50% 50%;
   transition: 0.5s;
 }
+#infos {
+  font-weight: bold;
+  right: 55px;
+}
 .actionbutton.undo {
   background: #900;
   color: #fff;
@@ -152,4 +161,14 @@ canvas {
   background: linear-gradient(to top, #000, #333);
   color: #fff;
   font-weight: normal;
+}
+.infopanel h1 {
+  font-size: 8vw;
+  font-weight: normal;
+  padding: 0 10px;
+}
+.infopanel p {
+  font-size: 5vw;
+  text-align: left;
+  padding: 0 10px;
 }

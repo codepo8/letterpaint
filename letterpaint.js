@@ -6,6 +6,7 @@
 
   /* Get buttons */
   var startbutton = document.querySelector('#intro button');
+  var infobutton = document.querySelector('#infos');
   var winbutton = document.querySelector('#win button');
   var reloadbutton = document.querySelector('#reload');
   var soundbutton = document.querySelector('#sound');
@@ -20,8 +21,8 @@
   var cx = c.getContext('2d');
   var letter = null;
   var fontsize = 300;
-  var paintcolour = [240,240,240];
-  var textcolour = [255,30,20];
+  var paintcolour = [240, 240, 240];
+  var textcolour = [255, 30, 20];
   var xoffset = 0;
   var yoffset = 0;
   var linewidth = 20;
@@ -37,6 +38,7 @@
   /* Overall game presets */
   var state = 'intro';
   var sound = true;
+  var currentstate;
 
   function init() {
     xoffset = container.offsetLeft;
@@ -67,9 +69,18 @@
     }
   }
 
+  function showinfo() {
+    if (state !== 'info') {
+      setstate('info');
+    } else {
+      setstate('play');
+    }
+  }
+
   function setstate(newstate) {
     state = newstate;
     container.className = newstate;
+    currentsate = state;
   }
   function moreneeded() {
     setstate('play');
@@ -110,7 +121,7 @@
     cx.fillText(
       letter,
       (c.width - cx.measureText(letter).width) / 2,
-      (c.height/1.3)
+      (c.height / 1.3)
     );
     pixels = cx.getImageData(0, 0, c.width, c.height);
     letterpixels = getpixelamount(
@@ -228,6 +239,7 @@
   /* Button event handlers */
 
   errorbutton.addEventListener('click', retry, false);
+  infobutton.addEventListener('click', showinfo, false);
   reloadbutton.addEventListener('click', cancel, false);
   soundbutton.addEventListener('click', togglesound, false);
   winbutton.addEventListener('click', winner, false);
@@ -241,6 +253,18 @@
   c.addEventListener('touchstart', ontouchstart, false);
   c.addEventListener('touchend', ontouchend, false);
   c.addEventListener('touchmove', ontouchmove, false);
+
   window.addEventListener('load',init, false);
+  window.addEventListener('resize',init, false);
+
+  /* Cache update ready? Reload the page! */
+  var cache = window.applicationCache;
+  function refresh() {
+    if (cache.status === cache.UPDATEREADY) {
+     cache.swapCache();
+     window.location.reload();
+    }
+  }
+  cache.addEventListener('updateready', refresh, false);
 
 })();

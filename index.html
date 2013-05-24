@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width">
   <meta charset="UTF-8">
-  <title>Letter Paint</title>
+  <title>letterpaint</title>
   <link rel="stylesheet" type="text/css" href="letterpaint.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
 
     <canvas></canvas>
 
-    <h1 class="toppanel">LetterPaint</h1>
+    <h1 class="toppanel">letterpaint</h1>
 
     <div id="intro" class="cover">
       <p>Paint over the letter you see on the screen. Can you write it without going outside of it?</p>
@@ -21,6 +21,7 @@
     </div>
 
     <button id="sound" class="navbutton">♬</button>
+    <button id="infos" class="navbutton">i</button>
 
     <div id="win" class="cover check">
       <p>Good job!</p> 
@@ -30,6 +31,12 @@
     <div id="error" class="cover">
       <p>You painted outside the letter!</p> 
       <button class="actionbutton">➜</button>
+    </div>
+
+    <div id="info" class="cover infopanel">
+      <h1>letterpaint</h1>
+      <p>version 1.0</p>
+      <p>Written by Chris Heilmann</p>
     </div>
 
     <button class="actionbutton undo" id="reload">X</button>
