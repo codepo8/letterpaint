@@ -71,8 +71,8 @@ canvas {
 }
 .cover p {
   text-align: center;
-  padding: 2vh 1vw;
   z-index: 2;
+  padding: 10px;
   font-size: 6vw;
 }
 .navbutton {
@@ -163,12 +163,24 @@ canvas {
   font-weight: normal;
 }
 .infopanel h1 {
-  font-size: 8vw;
+  font-size: 5vw;
   font-weight: normal;
   padding: 0 10px;
 }
 .infopanel p {
-  font-size: 5vw;
+  font-size: 3vw;
   text-align: left;
   padding: 0 10px;
+}  
+@media all and (max-width: 320px) {
+  .infopanel h1 {
+    font-size: 8vw;
+    font-weight: normal;
+    padding: 0 10px;
+  }
+  .infopanel p {
+    font-size: 5vw;
+    text-align: left;
+    padding: 0 10px;
+  }  
 }
