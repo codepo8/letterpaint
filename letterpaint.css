@@ -123,6 +123,16 @@ canvas {
   border-radius: 50% 50%;
   transition: 0.5s;
 }
+.inlinebutton {
+  float: right;
+  background: #060;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 20px;
+  font-size: 3vw;
+}
 #infos {
   font-weight: bold;
   right: 55px;

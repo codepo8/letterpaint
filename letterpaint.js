@@ -7,6 +7,7 @@
   /* Get buttons */
   var startbutton = document.querySelector('#intro button');
   var infobutton = document.querySelector('#infos');
+  var installbutton = document.querySelector('#install');
   var winbutton = document.querySelector('#win button');
   var reloadbutton = document.querySelector('#reload');
   var soundbutton = document.querySelector('#sound');
@@ -194,6 +195,27 @@
     }
   }
 
+
+  function install() {
+    if (navigator.mozApps) {
+      var checkIfInstalled = navigator.mozApps.getSelf();
+      checkIfInstalled.onsuccess = function () {
+        if (checkIfInstalled.result) {
+          installbutton.style.display = "none";
+        } else {
+          manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
+          var installApp = navigator.mozApps.install(manifestURL);
+          installApp.onsuccess = function(data) {
+            installbutton.style.display = "none";
+          };
+          installApp.onerror = function() {
+            alert("Install failed\n\n:" + installApp.error.name);
+          };
+        }
+      };
+    }
+  }
+
   /* Mouse event listeners */
 
   function onmouseup(ev) {
@@ -240,6 +262,7 @@
 
   errorbutton.addEventListener('click', retry, false);
   infobutton.addEventListener('click', showinfo, false);
+  installbutton.addEventListener('click', install, false);
   reloadbutton.addEventListener('click', cancel, false);
   soundbutton.addEventListener('click', togglesound, false);
   winbutton.addEventListener('click', winner, false);
